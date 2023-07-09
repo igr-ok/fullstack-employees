@@ -31,7 +31,7 @@ if(user && isPasswordCorrect && secret){
 }
         
     } catch (error) {
-        res.status(400).json({message: 'Something went wrong'})
+        res.status(500).json({message: 'Something went wrong'})
     }
 
 }
@@ -78,7 +78,7 @@ const register = async (req, res, next) => {
             return res.status(400).json({ message: 'Can`t make a user'});
          }
     } catch (error) {
-        res.status(400).json({message: 'Something went wrong'})
+        res.status(500).json({message: 'Something went wrong'})
     }
     
 }
