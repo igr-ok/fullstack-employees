@@ -9,6 +9,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
+    "@ant-design/icons": "^5.1.4",
     "@prisma/client": "^4.16.2",
     "concurrently": "^8.2.0",
     "cookie-parser": "~1.4.4",
