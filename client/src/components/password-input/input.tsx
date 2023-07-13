@@ -13,7 +13,22 @@ export const PasswordInput = ({name, placeholder, dependencies}: Props) => {
             required: true,
             message: 'Required field'
         }, ({getFieldValue}) => ({
-            validator
+            validator(_, value){
+                if(!value){
+                    return Promise.resolve();
+                }
+                if(name === 'confirmPassword'){
+                    if(!value || getFieldValue(("password")) === value){
+                        return Promise.resolve();
+                    }
+                    return Promise.reject(new Error('The same passwords required!'));
+                } else {
+                    if(value.length < 6){
+                        return Promise.reject(new Error('Password should be more than 6 symbols'));
+                    }
+                    return Promise.resolve();
+                }
+            }
         })]}>
             <Input.Password placeholder={placeholder} size='large' />
         </Form.Item>
