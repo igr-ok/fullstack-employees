@@ -12,7 +12,7 @@ export const Register = () => {
         <Layout>
             <Row align="middle" justify="center">
                 <Card title="Please register.." style={{ width: "30rem" }}>
-                    <Form onFinish={() => null}>
+                    <Form onFinish={Register}>
                         <CustomInput name="name" placeholder="Name"/>
                         <CustomInput type="email" name="email" placeholder="Email"/>
                         <PasswordInput name="password" placeholder="Password" />

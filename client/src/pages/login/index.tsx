@@ -9,6 +9,7 @@ import { Paths } from "../../paths";
 import { useLoginMutation, UserData } from "../../app/services/auth";
 import { isErrorWithMessage } from "../../utils/is-error-with-message";
 import {useState} from 'react';
+import { ErrorMessage } from "../../components/error-message";
 
 export const Login = () => {
     const [loginUser, loginUserResult] = useLoginMutation();
@@ -34,7 +35,7 @@ export const Login = () => {
         <Layout>
             <Row align="middle" justify="center">
                 <Card title="Log in to the system" style={{ width: "30rem" }}>
-                    <Form onFinish={() => null}>
+                    <Form onFinish={Login}>
                         <CustomInput type="email" name="email" placeholder="Email"/>
                         <PasswordInput name="password" placeholder="Password" />
                         <CustomButton type="primary" htmlType="submit">Log in</CustomButton>
@@ -43,6 +44,7 @@ export const Login = () => {
                         <Typography.Text>
                             Don`t have account? <Link to={Paths.register}>Please register..</Link>
                         </Typography.Text>
+                        <ErrorMessage message={ error }/>
                     </Space>
                 </Card>
 

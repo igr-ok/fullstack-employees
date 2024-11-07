@@ -5,6 +5,7 @@ const { prisma } = require('../prisma/prisma-client');
 //access private 
 
 const all = async (req, res) => {
+    console.log(req);
     try {
         const employees = await prisma.employee.findMany();
 

@@ -37,6 +37,7 @@ if(user && isPasswordCorrect && secret){
 }
 
 const register = async (req, res, next) => {
+    console.log(req);
     const {email, password, name} = req.body;
 
     try {
